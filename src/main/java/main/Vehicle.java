@@ -38,9 +38,18 @@ public class Vehicle
     {
         return engine;
     }
+
     public void print(String valmistaja, String malli, String nopeus)
     {   
-        String print = "Kulkuneuvo: " + valmistaja + " " + malli + "\n" +"Moottori: " + engine.getName() + " " + engine.getPower() + "kW\n" +"Huippunopeus: " + nopeus + "km/h"+"\n";
+        String vehicleType = "";
+        if (this instanceof Car) {
+            vehicleType = "auto";
+        } else if (this instanceof Plane) {
+            vehicleType = "lentokone";
+        } else if (this instanceof Ship) {
+            vehicleType = "laiva";
+        }
+        String print = vehicleType + ": " + valmistaja + " " + malli + "\n" +"Moottori: " + engine.getName() + " " + engine.getPower() + "kW\n" +"Huippunopeus: " + nopeus + "km/h"+"\n";
         System.out.println(print);
     }
 }
